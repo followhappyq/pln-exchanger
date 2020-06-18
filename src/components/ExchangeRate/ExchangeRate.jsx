@@ -9,13 +9,20 @@ const ExchangeRate = ({ pln }) => {
         <input
           type="text"
           className="exchange-rate__input"
-          disabled
-          value="1.00"
+          defaultValue="1.00"
+          readOnly
         />
         <p className="exchange-rate__description">euro</p>
       </div>
       <div className="exchange-rate__currency">
-        <input type="text" className="exchange-rate__input" value={pln} />
+        <input
+          type="text"
+          className="exchange-rate__input"
+          value={pln}
+          onChange={(e) => {
+            console.log(e.target.value)
+          }}
+        />
         <p className="exchange-rate__description">pln</p>
       </div>
     </div>

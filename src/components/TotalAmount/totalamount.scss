@@ -1,0 +1,11 @@
+.total-amount {
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+  color: black;
+  position: absolute;
+  bottom: 30px;
+  &__title {
+    margin-right: 5px;
+  }
+}

@@ -1,0 +1,32 @@
+.transaction {
+  height: 40px;
+  &__name,
+  &__amount,
+  &__add {
+    padding: 10px;
+    &:focus {
+      outline: none;
+    }
+  }
+  &__name {
+    width: 300px;
+    border-radius: 5px 0 0 5px;
+    border-right: 1px solid rgba($color: black, $alpha: 0.5);
+  }
+  &__amount {
+    width: 110px;
+    border-left: none;
+  }
+  &__add {
+    color: #fff;
+    background-color: #404040;
+    border: none;
+    width: 80px;
+    height: 46px;
+    border-radius: 0px 5px 5px 0px;
+    &:hover {
+      background-color: black;
+      cursor: pointer;
+    }
+  }
+}

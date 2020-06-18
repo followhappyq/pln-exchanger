@@ -1,9 +1,18 @@
 .container {
   width: 70%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin-top: 20px;
   margin-bottom: 20px;
   border: 1px solid rgba($color: black, $alpha: 0.3);
   box-shadow: 0px 0px 5px rgb(196, 195, 195);
+  font-family: "Roboto Condensed", sans-serif;
+
+  .wrapper-transaction {
+    width: 90%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
 }

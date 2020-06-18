@@ -1,13 +1,23 @@
 import React from "react"
-
-import { ExchangeRate, Transactions } from "./containers"
+import { LargestTotal } from "./components"
+import {
+  ExchangeRate,
+  Transaction,
+  TransactionsList,
+  TotalAmount,
+} from "./containers"
 import "./style/app.scss"
 
 const App = () => {
   return (
     <div className="container">
       <ExchangeRate />
-      <Transactions />
+      <Transaction />
+      <div className="wrapper-transaction">
+        <TransactionsList />
+        <LargestTotal />
+      </div>
+      <TotalAmount />
     </div>
   )
 }
