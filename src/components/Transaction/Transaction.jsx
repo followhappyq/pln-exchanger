@@ -16,7 +16,8 @@ const Transactions = ({ onNameChange, onAmountChange, onTransactionAdded }) => {
       <input
         type="number"
         className="transaction__amount"
-        placeholder="0.00"
+        placeholder="0.00 Euro"
+        step="0.01"
         onChange={(e) => {
           onAmountChange(e.target.value)
         }}

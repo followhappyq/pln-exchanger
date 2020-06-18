@@ -1,13 +1,20 @@
 import React, { useState } from "react"
+import { connect } from "react-redux"
 
+import { transactionsActions } from "../../redux/actions"
 import { Transaction as BaseTransaction } from "../../components"
 
-const Transactions = () => {
+const Transactions = ({ setTransactionsList, transactions }) => {
   const [name, setName] = useState("")
   const [amount, setAmount] = useState(0)
 
   const onTransactionAdded = (event) => {
-    console.log(name, amount)
+    if (name.length > 0) {
+      setTransactionsList([
+        ...transactions,
+        { _id: new Date().getTime(), title: name, euro: amount },
+      ])
+    }
     event.preventDefault()
   }
 
@@ -20,4 +27,9 @@ const Transactions = () => {
   )
 }
 
-export default Transactions
+export default connect(
+  ({ transactions }) => ({
+    transactions: transactions.transactions,
+  }),
+  transactionsActions
+)(Transactions)

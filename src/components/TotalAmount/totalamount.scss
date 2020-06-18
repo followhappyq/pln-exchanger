@@ -5,6 +5,13 @@
   color: black;
   position: absolute;
   bottom: 30px;
+  &:first-child {
+    margin-right: 20px;
+  }
+  &__currency {
+    display: flex;
+    flex-direction: row;
+  }
   &__title {
     margin-right: 5px;
   }

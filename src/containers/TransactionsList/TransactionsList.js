@@ -1,8 +1,10 @@
 import React from "react"
+import { connect } from "react-redux"
 
+import { transactionsActions } from "../../redux/actions"
 import { TransactionsList as BaseTransactionsList } from "../../components"
 
-const TransactionsList = () => {
+const TransactionsList = ({ transactions, rate, removeTransaction }) => {
   const transactionsList = [
     {
       title: "Transaction title",
@@ -26,7 +28,19 @@ const TransactionsList = () => {
       },
     },
   ]
-  return <BaseTransactionsList transactionsList={transactionsList} />
+  return (
+    <BaseTransactionsList
+      transactionsList={transactions}
+      rate={rate}
+      removeTransaction={removeTransaction}
+    />
+  )
 }
 
-export default TransactionsList
+export default connect(
+  ({ transactions, exchangeRate }) => ({
+    transactions: transactions.transactions,
+    rate: exchangeRate.rate,
+  }),
+  transactionsActions
+)(TransactionsList)
