@@ -1,5 +1,7 @@
 .transaction {
-  height: 40px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
   &__name,
   &__amount,
   &__add {

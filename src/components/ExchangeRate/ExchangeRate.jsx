@@ -2,9 +2,10 @@ import React from "react"
 
 import "./exchangerate.scss"
 
-const ExchangeRate = ({ pln, onRateChange }) => {
+const ExchangeRate = ({ pln, onRateChange, error }) => {
   return (
     <div className="exchange-rate">
+      <div className="error-message">{error}</div>
       <div className="exchange-rate__currency">
         <input
           type="text"

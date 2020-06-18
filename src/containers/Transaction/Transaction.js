@@ -7,15 +7,21 @@ import { Transaction as BaseTransaction } from "../../components"
 const Transactions = ({ setTransactionsList, transactions }) => {
   const [name, setName] = useState("")
   const [amount, setAmount] = useState(0)
+  const [error, setError] = useState("")
 
   const onTransactionAdded = (event) => {
-    if (name.length > 0) {
+    if (name.length > 0 && +amount > 0) {
       setTransactionsList([
         ...transactions,
         { _id: new Date().getTime(), title: name, euro: +amount },
       ])
       setName("")
       setAmount("")
+      setError("")
+    } else {
+      setError(
+        "Transaction name can't be blank/Amount cannot be 0 or negative."
+      )
     }
     event.preventDefault()
   }
@@ -27,6 +33,7 @@ const Transactions = ({ setTransactionsList, transactions }) => {
       onTransactionAdded={onTransactionAdded}
       name={name}
       amount={amount}
+      error={error}
     />
   )
 }

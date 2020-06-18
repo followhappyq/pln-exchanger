@@ -5,7 +5,7 @@ import "./largestTotal.scss"
 
 const LargestTotal = ({ largestTotal, rate }) => {
   return (
-    <div className="largest-total">
+    <ul className="transactions-list">
       {largestTotal.map((item) => (
         <li className="transactions-list__item" key={shortid.generate()}>
           <div className="transactions-list__title">{item.title}</div>
@@ -15,7 +15,7 @@ const LargestTotal = ({ largestTotal, rate }) => {
           </div>
         </li>
       ))}
-    </div>
+    </ul>
   )
 }
 

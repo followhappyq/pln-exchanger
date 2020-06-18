@@ -1,10 +1,11 @@
-import React from "react"
+import React, { useState } from "react"
 import { connect } from "react-redux"
 
 import { transactionsActions } from "../../redux/actions"
 import { TransactionsList as BaseTransactionsList } from "../../components"
 
 const TransactionsList = ({ transactions, rate, removeTransaction }) => {
+  const [currentPage, setCurrentPage] = useState(1)
   return (
     <BaseTransactionsList
       transactionsList={transactions}

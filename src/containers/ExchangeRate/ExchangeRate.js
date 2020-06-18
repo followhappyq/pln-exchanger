@@ -6,12 +6,20 @@ import { ExchangeRate as BaseRate } from "../../components"
 
 const ExchangeRate = ({ pln, setExchangeRate }) => {
   const [rate, setRate] = useState(pln)
+  const [error, setError] = useState("")
 
   const onRateChange = (e) => {
-    setRate(e.target.value)
-    setExchangeRate(e.target.value)
+    if (e.target.value > -1) {
+      setRate(e.target.value)
+      setError("")
+      if (+e.target.value !== 0) {
+        setExchangeRate(e.target.value)
+      }
+    } else {
+      setError("Can't be negative.")
+    }
   }
-  return <BaseRate pln={rate} onRateChange={onRateChange} />
+  return <BaseRate pln={rate} onRateChange={onRateChange} error={error} />
 }
 
 export default connect(

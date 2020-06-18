@@ -14,11 +14,19 @@ const App = () => {
     <div className="container">
       <ExchangeRate />
       <Transaction />
-      <div className="wrapper-transaction">
-        <TransactionsList />
-        <LargestTotal />
-      </div>
       <TotalAmount />
+      <div className="wrapper-transaction">
+        <div className="transaction__container">
+          <div className="transaction__title">List of transactions</div>
+          <TransactionsList />
+        </div>
+        <div className="transaction__container">
+          <div className="transaction__title">
+            List of transaction with largest amount total
+          </div>
+          <LargestTotal />
+        </div>
+      </div>
     </div>
   )
 }
