@@ -1,19 +1,27 @@
 import React, { useState } from "react"
-import { connect } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 
-import { exchangeRateActions } from "../../redux/actions"
+import { setExchangeRate } from "../../redux/actions/exchangeRate"
 import { ExchangeRate as BaseRate } from "../../components"
 
-const ExchangeRate = ({ pln, setExchangeRate }) => {
+const ExchangeRate = () => {
+  const pln = useSelector((state) => state.exchangeRate.rate)
   const [rate, setRate] = useState(pln)
   const [error, setError] = useState("")
 
-  const onRateChange = (e) => {
-    if (e.target.value > -1) {
-      setRate(e.target.value)
+  const dispatch = useDispatch()
+
+  const onSetExchangeRate = (value) => {
+    dispatch(setExchangeRate(value))
+  }
+
+  const onRateChange = ({ target }) => {
+    const { value } = target
+    if (value >= 0) {
+      setRate(value)
       setError("")
-      if (+e.target.value !== 0) {
-        setExchangeRate(e.target.value)
+      if (value !== "0") {
+        onSetExchangeRate(value)
       }
     } else {
       setError("Can't be negative.")
@@ -22,7 +30,4 @@ const ExchangeRate = ({ pln, setExchangeRate }) => {
   return <BaseRate pln={rate} onRateChange={onRateChange} error={error} />
 }
 
-export default connect(
-  ({ exchangeRate }) => ({ pln: exchangeRate.rate }),
-  exchangeRateActions
-)(ExchangeRate)
+export default ExchangeRate

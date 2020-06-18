@@ -1,35 +1,50 @@
 import React, { useState } from "react"
-import { connect } from "react-redux"
+import { useDispatch } from "react-redux"
 
-import { transactionsActions } from "../../redux/actions"
+import { setTransactionsList } from "../../redux/actions/transactions"
 import { Transaction as BaseTransaction } from "../../components"
 
-const Transactions = ({ setTransactionsList, transactions }) => {
+const Transactions = () => {
   const [name, setName] = useState("")
   const [amount, setAmount] = useState(0)
   const [error, setError] = useState("")
 
+  const dispatch = useDispatch()
+
+  const onSetTransactionsList = (value) => {
+    dispatch(setTransactionsList(value))
+  }
+
+  const onSetName = (value) => {
+    setName(value)
+  }
+
+  const onSetAmount = (value) => {
+    setAmount(value)
+  }
+
   const onTransactionAdded = (event) => {
-    if (name.length > 0 && +amount > 0) {
-      setTransactionsList([
-        ...transactions,
-        { _id: new Date().getTime(), title: name, euro: +amount },
-      ])
+    event.preventDefault()
+    if (name.length > 0 && Number(amount) > 0) {
+      onSetTransactionsList({
+        _id: new Date().getTime(),
+        title: name,
+        euro: Number(amount),
+      })
       setName("")
-      setAmount("")
+      setAmount(0)
       setError("")
     } else {
       setError(
         "Transaction name can't be blank/Amount cannot be 0 or negative."
       )
     }
-    event.preventDefault()
   }
 
   return (
     <BaseTransaction
-      onNameChange={setName}
-      onAmountChange={setAmount}
+      onNameChange={onSetName}
+      onAmountChange={onSetAmount}
       onTransactionAdded={onTransactionAdded}
       name={name}
       amount={amount}
@@ -38,9 +53,4 @@ const Transactions = ({ setTransactionsList, transactions }) => {
   )
 }
 
-export default connect(
-  ({ transactions }) => ({
-    transactions: transactions.transactions,
-  }),
-  transactionsActions
-)(Transactions)
+export default Transactions

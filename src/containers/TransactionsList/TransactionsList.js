@@ -1,24 +1,25 @@
-import React, { useState } from "react"
-import { connect } from "react-redux"
+import React from "react"
+import { useDispatch, useSelector } from "react-redux"
 
-import { transactionsActions } from "../../redux/actions"
+import { removeTransaction } from "../../redux/actions/transactions"
 import { TransactionsList as BaseTransactionsList } from "../../components"
 
-const TransactionsList = ({ transactions, rate, removeTransaction }) => {
-  const [currentPage, setCurrentPage] = useState(1)
+const TransactionsList = () => {
+  const dispatch = useDispatch()
+  const transactions = useSelector((state) => state.transactions.transactions)
+  const rate = useSelector((state) => state.exchangeRate.rate)
+
+  const onRemoveTransaction = (id) => {
+    dispatch(removeTransaction(id))
+  }
+
   return (
     <BaseTransactionsList
       transactionsList={transactions}
       rate={rate}
-      removeTransaction={removeTransaction}
+      removeTransaction={onRemoveTransaction}
     />
   )
 }
 
-export default connect(
-  ({ transactions, exchangeRate }) => ({
-    transactions: transactions.transactions,
-    rate: exchangeRate.rate,
-  }),
-  transactionsActions
-)(TransactionsList)
+export default TransactionsList

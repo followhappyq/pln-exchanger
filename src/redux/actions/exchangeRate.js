@@ -1,8 +1,6 @@
-const actions = {
-  setExchangeRate: (rate) => ({
-    type: "EXCHANGE_RATE:SET_EXCHANGE_RATE",
-    payload: rate,
-  }),
-}
+export const SET_EXCHANGE_RATE = "EXCHANGE_RATE:SET_EXCHANGE_RATE"
 
-export default actions
+export const setExchangeRate = (rate) => ({
+  type: SET_EXCHANGE_RATE,
+  payload: rate,
+})

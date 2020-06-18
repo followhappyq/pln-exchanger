@@ -1,12 +1,12 @@
-const actions = {
-  setTransactionsList: (transaction) => ({
-    type: "TRANSACTIONS:SET_TRANSACTIONS_LIST",
-    payload: transaction,
-  }),
-  removeTransaction: (id) => ({
-    type: "TRANSACTIONS:REMOVE_TRANSACTION",
-    payload: id,
-  }),
-}
+export const REMOVE_TRANSACTION = "TRANSACTIONS:REMOVE_TRANSACTION"
+export const SET_TRANSACTIONS_LIST = "TRANSACTIONS:SET_TRANSACTIONS_LIST"
 
-export default actions
+export const setTransactionsList = (transaction) => ({
+  type: SET_TRANSACTIONS_LIST,
+  payload: transaction,
+})
+
+export const removeTransaction = (id) => ({
+  type: REMOVE_TRANSACTION,
+  payload: id,
+})

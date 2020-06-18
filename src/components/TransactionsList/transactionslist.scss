@@ -17,17 +17,16 @@
     }
   }
   &__remove {
-    color: #fff;
-    background-color: #404040;
+    color: red;
     border: none;
     cursor: pointer;
-    padding: 7px 10px;
+    padding: 0px 4px;
     position: absolute;
     right: 10px;
     top: 15px;
     border-radius: 2px;
     &:hover {
-      background-color: black;
+      background-color: darken($color: #f5f5f5, $amount: 10);
       cursor: pointer;
     }
   }
