@@ -12,8 +12,10 @@ const Transactions = ({ setTransactionsList, transactions }) => {
     if (name.length > 0) {
       setTransactionsList([
         ...transactions,
-        { _id: new Date().getTime(), title: name, euro: amount },
+        { _id: new Date().getTime(), title: name, euro: +amount },
       ])
+      setName("")
+      setAmount("")
     }
     event.preventDefault()
   }
@@ -23,6 +25,8 @@ const Transactions = ({ setTransactionsList, transactions }) => {
       onNameChange={setName}
       onAmountChange={setAmount}
       onTransactionAdded={onTransactionAdded}
+      name={name}
+      amount={amount}
     />
   )
 }

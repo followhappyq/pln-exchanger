@@ -16,8 +16,9 @@ const ExchangeRate = ({ pln, onRateChange }) => {
       </div>
       <div className="exchange-rate__currency">
         <input
-          type="text"
+          type="number"
           className="exchange-rate__input"
+          step="0.01"
           value={pln}
           onChange={onRateChange}
         />

@@ -1,10 +1,11 @@
 import React from "react"
-import { LargestTotal } from "./components"
+
 import {
   ExchangeRate,
   Transaction,
   TransactionsList,
   TotalAmount,
+  LargestTotal,
 } from "./containers"
 import "./style/app.scss"
 

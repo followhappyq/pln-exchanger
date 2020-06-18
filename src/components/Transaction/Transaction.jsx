@@ -2,7 +2,13 @@ import React from "react"
 
 import "./transaction.scss"
 
-const Transactions = ({ onNameChange, onAmountChange, onTransactionAdded }) => {
+const Transactions = ({
+  onNameChange,
+  onAmountChange,
+  onTransactionAdded,
+  name,
+  amount,
+}) => {
   return (
     <form className="transaction" onSubmit={onTransactionAdded}>
       <input
@@ -12,6 +18,7 @@ const Transactions = ({ onNameChange, onAmountChange, onTransactionAdded }) => {
         onChange={(e) => {
           onNameChange(e.target.value)
         }}
+        value={name}
       />
       <input
         type="number"
@@ -21,6 +28,7 @@ const Transactions = ({ onNameChange, onAmountChange, onTransactionAdded }) => {
         onChange={(e) => {
           onAmountChange(e.target.value)
         }}
+        value={amount}
       />
       <input type="submit" className="transaction__add" value="Add" />
     </form>
