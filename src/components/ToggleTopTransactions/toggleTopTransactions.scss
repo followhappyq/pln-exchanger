@@ -3,11 +3,12 @@
   flex-direction: row;
   border: 1px solid rgba($color: black, $alpha: 0.2);
   border-radius: 10px;
-  margin-bottom: 16px;
-
+  margin-bottom: 4px;
   &__item {
+    font-size: 17px;
+    padding: 0px 5px;
     cursor: pointer;
-    padding: 5px;
+    padding: 0px;
     border: none;
     transition: 0.5s ease;
     &:active,
@@ -17,7 +18,7 @@
     &:disabled {
       opacity: 1;
       background-color: #ddd;
-      color: black;
+      color: rgb(37, 37, 37);
     }
     &:enabled {
       opacity: 0.4;
@@ -26,10 +27,12 @@
     &:first-child {
       border-radius: 10px 0px 0px 10px;
       border-right: 1px solid rgba($color: black, $alpha: 0.1);
+      padding-left: 5px;
     }
     &:last-child {
       border-radius: 0px 10px 10px 0px;
       border-left: 1px solid rgba($color: black, $alpha: 0.1);
+      padding-right: 5px;
     }
   }
   .active {

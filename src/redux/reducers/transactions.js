@@ -5,6 +5,7 @@ import {
   SET_TOP_TRANSACTIONS_LIST,
   SET_LARGEST_TRANSACTIONS_LIST,
   SET_PAGES_CONTENT,
+  SET_CURRENT_PAGE,
 } from "../actions/transactions"
 
 const initialState = {
@@ -12,7 +13,7 @@ const initialState = {
   top: 1,
   topTransactions: [],
   largestTrasactions: [],
-  pagesContent: [],
+  pagesContent: {},
   currentPage: 1,
 }
 
@@ -48,6 +49,11 @@ export default (state = initialState, { type, payload }) => {
       return {
         ...state,
         pagesContent: payload,
+      }
+    case SET_CURRENT_PAGE:
+      return {
+        ...state,
+        currentPage: payload,
       }
 
     default:

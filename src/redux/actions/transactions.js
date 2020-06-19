@@ -7,6 +7,7 @@ export const SET_LARGEST_TRANSACTIONS_LIST =
   "TRANSACTIONS:SET_LARGEST_TRANSACTIONS_LIST"
 
 export const SET_PAGES_CONTENT = "TRANSACTIONS:SET_PAGES_CONTENT"
+export const SET_CURRENT_PAGE = "TRANSACTIONS:SET_CURRENT_PAGE"
 
 export const setTransactionsList = (transaction) => ({
   type: SET_TRANSACTIONS_LIST,
@@ -36,4 +37,9 @@ export const setTopTransactions = (top) => ({
 export const setPagesContent = (transactions) => ({
   type: SET_PAGES_CONTENT,
   payload: transactions,
+})
+
+export const setCurrentPage = (currentPage) => ({
+  type: SET_CURRENT_PAGE,
+  payload: currentPage,
 })
