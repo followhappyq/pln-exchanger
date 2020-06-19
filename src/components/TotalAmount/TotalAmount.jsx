@@ -8,7 +8,8 @@ const TotalAmount = ({ totalAmount, rate }) => {
       <div className="total-amount__currency">
         <div className="total-amount__title">Total amount transactions:</div>
         <span className="total-amount__description">
-          {totalAmount} (EURO) / {Number((totalAmount * rate).toFixed(2))} (PLN)
+          {totalAmount.toFixed(2)} (EURO) /{" "}
+          {Number(totalAmount * rate).toFixed(2)} (PLN)
         </span>
       </div>
     </div>

@@ -11,8 +11,8 @@ const Transactions = () => {
 
   const dispatch = useDispatch()
 
-  const onSetTransactionsList = (value) => {
-    dispatch(setTransactionsList(value))
+  const onSetTransactionsList = (transaction) => {
+    dispatch(setTransactionsList(transaction))
   }
 
   const onSetName = (value) => {

@@ -4,3 +4,4 @@ export { default as TransactionsList } from "./TransactionsList/TransactionsList
 export { default as TotalAmount } from "./TotalAmount/TotalAmount"
 export { default as LargestTotal } from "./LargestTotal/LargestTotal"
 export { default as Pagination } from "./Pagination/Pagination"
+export { default as ToggleTopTransactions } from "./ToggleTopTransactions/ToggleTopTransactions"

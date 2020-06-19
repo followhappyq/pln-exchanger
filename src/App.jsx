@@ -7,6 +7,7 @@ import {
   TotalAmount,
   LargestTotal,
   Pagination,
+  ToggleTopTransactions,
 } from "./containers"
 import "./style/app.scss"
 
@@ -24,7 +25,9 @@ const App = () => {
           <TransactionsList />
         </div>
         <div className="transaction__container">
-          <div className="transaction__title">Largest amount total</div>
+          <div className="transaction__title">
+            <ToggleTopTransactions />
+          </div>
           <LargestTotal />
         </div>
       </div>
