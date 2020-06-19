@@ -6,9 +6,14 @@ import "./pagination.scss"
 const Pagination = () => {
   return (
     <div className="pagination">
-      <LeftCircleOutlined className="pagination__icon" />
-      List of transactions
-      <RightCircleOutlined className="pagination__icon" />
+      <div className="pagination__controller">List of transactions</div>
+      <ul className="pagination__pages">
+        <LeftCircleOutlined className="pagination__icon" />
+        <li className="pagination__pages__page">1</li>
+        <li className="pagination__pages__page">2</li>
+        <li className="pagination__pages__page">3</li>
+        <RightCircleOutlined className="pagination__icon" />
+      </ul>
     </div>
   )
 }

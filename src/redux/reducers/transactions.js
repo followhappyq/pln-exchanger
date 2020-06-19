@@ -4,6 +4,7 @@ import {
   SET_TOP_TRANSACTIONS,
   SET_TOP_TRANSACTIONS_LIST,
   SET_LARGEST_TRANSACTIONS_LIST,
+  SET_PAGES_CONTENT,
 } from "../actions/transactions"
 
 const initialState = {
@@ -11,6 +12,8 @@ const initialState = {
   top: 1,
   topTransactions: [],
   largestTrasactions: [],
+  pagesContent: [],
+  currentPage: 1,
 }
 
 export default (state = initialState, { type, payload }) => {
@@ -40,6 +43,11 @@ export default (state = initialState, { type, payload }) => {
       return {
         ...state,
         largestTrasactions: payload,
+      }
+    case SET_PAGES_CONTENT:
+      return {
+        ...state,
+        pagesContent: payload,
       }
 
     default:
