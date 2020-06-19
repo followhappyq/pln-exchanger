@@ -3,7 +3,12 @@ import shortid from "shortid"
 
 import "./transactionslist.scss"
 
-const TransactionsList = ({ transactionsList, rate, removeTransaction }) => {
+const TransactionsList = ({
+  transactionsList,
+  rate,
+  removeTransaction,
+  canRemove,
+}) => {
   return (
     <ul className="transactions-list">
       {transactionsList.map((item) => (
@@ -13,14 +18,18 @@ const TransactionsList = ({ transactionsList, rate, removeTransaction }) => {
           <div className="transactions-list__total-pln">
             PLN: {Number((item.euro * rate).toFixed(2))}
           </div>
-          <button
-            className="transactions-list__remove"
-            onClick={() => {
-              removeTransaction(item._id)
-            }}
-          >
-            X
-          </button>
+          {canRemove ? (
+            <button
+              className="transactions-list__remove"
+              onClick={() => {
+                removeTransaction(item._id)
+              }}
+            >
+              X
+            </button>
+          ) : (
+            ""
+          )}
         </li>
       ))}
     </ul>

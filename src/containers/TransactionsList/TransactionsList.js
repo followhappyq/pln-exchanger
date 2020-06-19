@@ -18,6 +18,7 @@ const TransactionsList = () => {
       transactionsList={transactions}
       rate={rate}
       removeTransaction={onRemoveTransaction}
+      canRemove={true}
     />
   )
 }

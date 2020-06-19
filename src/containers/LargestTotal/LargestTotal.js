@@ -1,7 +1,7 @@
 import React from "react"
 import { useSelector } from "react-redux"
 
-import { LargestTotal as BaseLargestTotal } from "../../components"
+import { TransactionsList as BaseLargestTotal } from "../../components"
 
 const LargestTotal = () => {
   const transactions = useSelector((state) => state.transactions.transactions)
@@ -12,7 +12,7 @@ const LargestTotal = () => {
       Math.max(...transactions.map((item) => Number(item.euro)))
   )
 
-  return <BaseLargestTotal rate={rate} largestTotal={largestTotal} />
+  return <BaseLargestTotal rate={rate} transactionsList={largestTotal} />
 }
 
 export default LargestTotal
