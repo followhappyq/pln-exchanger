@@ -15,12 +15,12 @@ const Transactions = () => {
     dispatch(setTransactionsList(transaction))
   }
 
-  const onSetName = (value) => {
-    setName(value)
+  const onSetName = (name) => {
+    setName(name)
   }
 
-  const onSetAmount = (value) => {
-    setAmount(value)
+  const onSetAmount = (amount) => {
+    setAmount(amount)
   }
 
   const onTransactionAdded = (event) => {

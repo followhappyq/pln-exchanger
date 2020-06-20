@@ -8,6 +8,7 @@ import {
   LargestTotal,
   Pagination,
   ToggleTopTransactions,
+  FilterByTitle,
 } from "./containers"
 import "./style/app.scss"
 
@@ -17,6 +18,8 @@ const App = () => {
       <ExchangeRate />
       <Transaction />
       <TotalAmount />
+      <FilterByTitle />
+
       <div className="wrapper-transaction">
         <div className="transaction__container">
           <div className="transaction__title">

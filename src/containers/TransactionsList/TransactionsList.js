@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 
 import {
@@ -12,6 +12,23 @@ const TransactionsList = () => {
   const dispatch = useDispatch()
   const transactions = useSelector((state) => state.transactions.transactions)
   const rate = useSelector((state) => state.exchangeRate.rate)
+  const query = useSelector((state) => state.filters.query)
+
+  const [filterTransactions, setFilterTransactions] = useState(transactions)
+
+  const onFilterTransactions = (transactions, query) =>
+    transactions.filter(
+      (transaction) =>
+        transaction.title.toLowerCase().indexOf(query.toLowerCase()) >= 0
+    )
+
+  const onChangeQuery = (transactions, query) => {
+    if (query.length === 0) {
+      setFilterTransactions(transactions)
+    } else {
+      setFilterTransactions(onFilterTransactions(transactions, query))
+    }
+  }
 
   const onRemoveTransaction = (id) => {
     dispatch(removeTransaction(id))
@@ -47,9 +64,14 @@ const TransactionsList = () => {
     onAddLargestTransactions(largestTransactions(transactions))
   })
 
+  useEffect(() => {
+    onChangeQuery(transactions, query)
+    // eslint-disable-next-line
+  }, [query, transactions])
+
   return (
     <BaseTransactionsList
-      transactionsList={transactions}
+      transactionsList={filterTransactions}
       rate={rate}
       removeTransaction={onRemoveTransaction}
       canRemove={true}

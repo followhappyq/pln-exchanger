@@ -4,3 +4,4 @@ export { default as TransactionsList } from "./TransactionsList/TransactionsList
 export { default as TotalAmount } from "./TotalAmount/TotalAmount"
 export { default as Pagination } from "./Pagination/Pagination"
 export { default as ToggleTopTransactions } from "./ToggleTopTransactions/ToggleTopTransactions"
+export { default as FilterByTitle } from "./FilterByTitle/FilterByTitle"
