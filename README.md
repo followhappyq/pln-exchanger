@@ -1,3 +1,5 @@
+<a href="http://followhappyq.github.io/pln-exchanger"> DEMO</a>
+
 Lista wymagań
 
 - Wyświetlanie i definiowanie przelicznika walutowego (1 EURO = x PLN)
