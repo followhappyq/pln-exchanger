@@ -6,7 +6,6 @@ import {
   TransactionsList,
   TotalAmount,
   LargestTotal,
-  Pagination,
   ToggleTopTransactions,
   FilterByTitle,
 } from "./containers"
@@ -22,9 +21,7 @@ const App = () => {
 
       <div className="wrapper-transaction">
         <div className="transaction__container">
-          <div className="transaction__title">
-            <Pagination />
-          </div>
+          <div className="transaction__title">List of transactions</div>
           <TransactionsList />
         </div>
         <div className="transaction__container">

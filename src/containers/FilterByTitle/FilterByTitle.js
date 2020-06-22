@@ -12,6 +12,7 @@ const FilterByTitle = () => {
   const onQueryChange = (query) => {
     dispatch(setQuery(query))
   }
+
   return <BaseFilterByTitle query={query} onQueryChange={onQueryChange} />
 }
 

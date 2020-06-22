@@ -16,19 +16,9 @@
     border-radius: 5px 0 0 5px;
     border-right: 1px solid rgba($color: black, $alpha: 0.5);
   }
-  @media screen and (max-width: 710px) {
-    &__name {
-      width: 200px;
-    }
-  }
   &__amount {
     width: 110px;
     border-left: none;
-  }
-  @media screen and (max-width: 580px) {
-    &__amount {
-      width: 70px;
-    }
   }
   &__add {
     color: #fff;
@@ -37,9 +27,9 @@
     width: 80px;
     height: 46px;
     border-radius: 0px 5px 5px 0px;
+    cursor: pointer;
     &:hover {
       background-color: black;
-      cursor: pointer;
     }
   }
 }

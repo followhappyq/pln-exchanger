@@ -1,5 +1,4 @@
 import React from "react"
-import shortid from "shortid"
 
 import "./transactionslist.scss"
 
@@ -12,7 +11,7 @@ const TransactionsList = ({
   return (
     <ul className="transactions-list">
       {transactionsList.map((item) => (
-        <li className="transactions-list__item" key={shortid.generate()}>
+        <li className="transactions-list__item" key={item._id}>
           <div className="transactions-list__title">{item.title}</div>
           <div className="transactions-list__total-euro">
             EURO: {item.euro.toFixed(2)}

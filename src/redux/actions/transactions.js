@@ -1,13 +1,6 @@
 export const REMOVE_TRANSACTION = "TRANSACTIONS:REMOVE_TRANSACTION"
 export const SET_TRANSACTIONS_LIST = "TRANSACTIONS:SET_TRANSACTIONS_LIST"
 export const SET_TOP_TRANSACTIONS = "TRANSACTIONS:SET_TOP_TRANSACTIONS"
-export const SET_TOP_TRANSACTIONS_LIST =
-  "TRANSACTIONS:SET_TOP_TRANSACTIONS_LIST"
-export const SET_LARGEST_TRANSACTIONS_LIST =
-  "TRANSACTIONS:SET_LARGEST_TRANSACTIONS_LIST"
-
-export const SET_PAGES_CONTENT = "TRANSACTIONS:SET_PAGES_CONTENT"
-export const SET_CURRENT_PAGE = "TRANSACTIONS:SET_CURRENT_PAGE"
 
 export const setTransactionsList = (transaction) => ({
   type: SET_TRANSACTIONS_LIST,
@@ -19,27 +12,7 @@ export const removeTransaction = (id) => ({
   payload: id,
 })
 
-export const setTopTransactionsList = (transactions) => ({
-  type: SET_TOP_TRANSACTIONS_LIST,
-  payload: transactions,
-})
-
-export const setLargestTransactions = (transactions) => ({
-  type: SET_LARGEST_TRANSACTIONS_LIST,
-  payload: transactions,
-})
-
 export const setTopTransactions = (top) => ({
   type: SET_TOP_TRANSACTIONS,
   payload: top,
-})
-
-export const setPagesContent = (transactions) => ({
-  type: SET_PAGES_CONTENT,
-  payload: transactions,
-})
-
-export const setCurrentPage = (currentPage) => ({
-  type: SET_CURRENT_PAGE,
-  payload: currentPage,
 })
