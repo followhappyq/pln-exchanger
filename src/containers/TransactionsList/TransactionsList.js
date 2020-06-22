@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useCallback } from "react"
 import { useDispatch, useSelector } from "react-redux"
 
 import {
@@ -22,13 +22,13 @@ const TransactionsList = () => {
         transaction.title.toLowerCase().indexOf(query.toLowerCase()) >= 0
     )
 
-  const onChangeQuery = (transactions, query) => {
+  const onChangeQuery = useCallback((transactions, query) => {
     if (query.length === 0) {
       setFilterTransactions(transactions)
     } else {
       setFilterTransactions(onFilterTransactions(transactions, query))
     }
-  }
+  }, [])
 
   const onRemoveTransaction = (id) => {
     dispatch(removeTransaction(id))
@@ -66,8 +66,7 @@ const TransactionsList = () => {
 
   useEffect(() => {
     onChangeQuery(transactions, query)
-    // eslint-disable-next-line
-  }, [query, transactions])
+  }, [query, transactions, onChangeQuery])
 
   return (
     <BaseTransactionsList
